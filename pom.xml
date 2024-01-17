@@ -75,12 +75,12 @@
 
             <distributionManagement>
                 <snapshotRepository>
-                    <id>ossrh</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+                    <id>fantasyrealms</id>
+                    <url>https://repo.fantasyrealms.net/other-snapshots/</url>
                 </snapshotRepository>
                 <repository>
-                    <id>ossrh</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                    <id>fantasyrealms</id>
+                    <url>https://repo.fantasyrealms.net/other-libraries/</url>
                 </repository>
             </distributionManagement>
         </profile>
