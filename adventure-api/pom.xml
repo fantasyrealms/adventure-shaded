@@ -10,11 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>adventure-api</artifactId>
-    <version>4.15.0</version>
+    <version>4.17.0</version>
 
     <properties>
         <maven.deploy.skip>false</maven.deploy.skip>
-        <adventure.version>4.15.0</adventure.version>
+        <adventure.version>4.17.0</adventure.version>
     </properties>
 
     <build>
