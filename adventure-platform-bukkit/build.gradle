@@ -12,3 +12,4 @@ dependencies {
 }
 
 description = 'adventure-platform-bukkit'
+version = platform

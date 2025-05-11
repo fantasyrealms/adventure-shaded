@@ -18,6 +18,9 @@ configurations {
     }
 }
 
+ext.adventure = "4.17.0"
+ext.platform = "4.3.3"
+
 ext.withSources = { String coord, Closure cfg = null ->
     dependencies {
         implementation(coord, { transitive = false })
@@ -62,7 +65,7 @@ shadowJar {
 }
 
 group = 'net.fantasyrealms'
-version = '4.17.0'
+version = '1.0.0-SNAPSHOT'
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 publishing {

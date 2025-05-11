@@ -21,3 +21,4 @@ shadowJar {
 }
 
 description = 'adventure-api'
+version = adventure
