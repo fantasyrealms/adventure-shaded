@@ -7,8 +7,8 @@ plugins {
 }
 
 dependencies {
-    withSources(DependencyUtils.toString(libs.net.kyori.adventure.platform.api))
-    withSources(DependencyUtils.toString(libs.net.kyori.adventure.platform.facet))
+    withSources("net.kyori:adventure-platform-api:${platform}")
+    withSources("net.kyori:adventure-platform-facet:${platform}")
 }
 
 description = 'adventure-platform-api'

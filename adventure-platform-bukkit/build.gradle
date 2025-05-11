@@ -7,8 +7,8 @@ plugins {
 }
 
 dependencies {
-    withSources(DependencyUtils.toString(libs.net.kyori.adventure.platform.bukkit))
-    withSources(DependencyUtils.toString(libs.net.kyori.adventure.platform.viaversion))
+    withSources("net.kyori:adventure-platform-bukkit:${platform}")
+    withSources("net.kyori:adventure-platform-viaversion:${platform}")
 }
 
 description = 'adventure-platform-bukkit'

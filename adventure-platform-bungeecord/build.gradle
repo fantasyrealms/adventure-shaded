@@ -7,7 +7,7 @@ plugins {
 }
 
 dependencies {
-    withSources(DependencyUtils.toString(libs.net.kyori.adventure.platform.bungeecord))
+    withSources("net.kyori:adventure-platform-bungeecord:${platform}")
 }
 
 description = 'adventure-platform-bungeecord'

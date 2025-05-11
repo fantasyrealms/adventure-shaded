@@ -7,13 +7,13 @@ plugins {
 }
 
 dependencies {
-    withSources(DependencyUtils.toString(libs.net.kyori.adventure.api))
-    withSources(DependencyUtils.toString(libs.net.kyori.adventure.nbt))
-    withSources(DependencyUtils.toString(libs.net.kyori.adventure.text.minimessage))
-    withSources(DependencyUtils.toString(libs.net.kyori.adventure.text.serializer.gson.asProvider()))
-    withSources(DependencyUtils.toString(libs.net.kyori.adventure.text.serializer.gson.legacy.impl))
-    withSources(DependencyUtils.toString(libs.net.kyori.adventure.text.serializer.legacy))
-    withSources(DependencyUtils.toString(libs.net.kyori.adventure.text.serializer.plain))
+    withSources("net.kyori:adventure-api:${adventure}")
+    withSources("net.kyori:adventure-nbt:${adventure}")
+    withSources("net.kyori:adventure-text-minimessage:${adventure}")
+    withSources("net.kyori:adventure-text-serializer-gson:${adventure}")
+    withSources("net.kyori:adventure-text-serializer-gson-legacy-impl:${adventure}")
+    withSources("net.kyori:adventure-text-serializer-legacy:${adventure}")
+    withSources("net.kyori:adventure-text-serializer-plain:${adventure}")
 }
 
 shadowJar {
