@@ -1,7 +1,22 @@
+> Most users probably don't need this.
+> Stick to the official modules unless you know why you want a shaded jar.
+
 # adventure-shaded
 
-This repo contains a collection of Maven buildscripts which produce shaded "uber" jars  for the [adventure](https://github.com/KyoriPowered/adventure) and [adventure-platform](https://github.com/KyoriPowered/adventure-platform) libraries.
+This repo builds a **shaded "uber" JAR** that bundles
+the [adventure][adventure]
+and [adventure-platform][adventure-platform] libraries.
 
-adventure is spread across many (over 15!) modules, each of which is distributed as a separate jar file. For my use cases, this is not desirable.
+### Why?
 
-Most users will not care about this, and therefore should not use this.
+Adventure is split across over 15 modules, which is great — but for my use cases,
+this is not desirable.
+This project makes it easier by bundling them into one jar.
+
+### Current Versions
+
+* **Adventure**: `4.17.0`
+* **Adventure Platform**: `4.3.3`
+
+[adventure]: https://github.com/KyoriPowered/adventure
+[adventure-platform]: https://github.com/KyoriPowered/adventure-platform
