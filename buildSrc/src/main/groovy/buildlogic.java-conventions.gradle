@@ -21,6 +21,7 @@ configurations {
 ext {
     adventure = "4.17.0"
     platform = "4.3.3"
+    examination = "1.3.0"
 
     withSources = { String coord, Closure cfg = null ->
         dependencies {

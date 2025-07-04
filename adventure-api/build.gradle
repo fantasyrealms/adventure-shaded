@@ -14,6 +14,9 @@ dependencies {
     withSources("net.kyori:adventure-text-serializer-gson-legacy-impl:${adventure}")
     withSources("net.kyori:adventure-text-serializer-legacy:${adventure}")
     withSources("net.kyori:adventure-text-serializer-plain:${adventure}")
+
+    withSources("net.kyori:examination-api:${examination}")
+    withSources("net.kyori:examination-string:${examination}")
 }
 
 shadowJar {
