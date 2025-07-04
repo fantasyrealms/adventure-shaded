@@ -1,0 +1,101 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id "com.gradleup.shadow"
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven {
+        url = "https://repo.viaversion.com/everything"
+    }
+}
+
+configurations {
+    dependencySources {
+        canBeResolved = true
+    }
+}
+
+ext {
+    adventure = "4.17.0"
+    platform = "4.3.3"
+
+    withSources = { String coord, Closure cfg = null ->
+        dependencies {
+            implementation(coord, { transitive = false })
+            dependencySources("${coord}:sources@jar")
+        }
+    }
+}
+
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
+tasks.register('shadowSourcesJar', ShadowJar) {
+    // only pull in the resolved source-jars
+    configurations = [project.configurations.dependencySources]
+
+    // mark it as your sources-artifact
+    archiveClassifier.set('sources')
+}
+
+tasks.register('dependencySourcesJar', Jar) {
+    archiveClassifier.set('sources')
+
+    from({
+        configurations.dependencySources.collect { zipTree(it) }
+    }) {
+        exclude 'META-INF/**'
+        exclude 'com/**'
+        exclude 'org/**'
+    }
+}
+
+shadowJar {
+    archiveClassifier.set('')
+
+    exclude 'META-INF/**'
+
+    dependencies {
+        exclude(dependency("org.jetbrains:annotations:.*"))
+        exclude(dependency("com.google.code.gson:gson:.*"))
+        exclude(dependency("com.google.auto.service:.*:.*"))
+
+        exclude 'META-INF/**'
+    }
+}
+
+group = 'net.fantasyrealms'
+version = '1.0.0-SNAPSHOT'
+java.sourceCompatibility = JavaVersion.VERSION_1_8
+
+publishing {
+    publications {
+        shadow(MavenPublication) {
+            groupId = project.group
+            artifactId = project.name
+
+            artifacts = [ shadowJar, shadowSourcesJar ]
+        }
+    }
+
+    repositories {
+        maven {
+            name = "frsOtherLibraries"
+            url = uri('https://repo.fantasyrealms.net/other-libraries/')
+            credentials {
+                username = project.findProperty("frsRepositoryUsername") ?: System.getenv("MAVEN_REPO_USERNAME")
+                password = project.findProperty("frsRepositoryPassword") ?: System.getenv("MAVEN_REPO_PASSWORD")
+            }
+        }
+        maven {
+            name = "frsOtherSnapshots"
+            url = uri('https://repo.fantasyrealms.net/other-snapshots/')
+            credentials {
+                username = project.findProperty("frsRepositoryUsername") ?: System.getenv("MAVEN_REPO_USERNAME")
+                password = project.findProperty("frsRepositoryPassword") ?: System.getenv("MAVEN_REPO_PASSWORD")
+            }
+        }
+    }
+}
